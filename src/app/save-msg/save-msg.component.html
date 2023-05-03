@@ -1,0 +1,44 @@
+<br><br>
+<h2>Create Message</h2>
+
+<form [formGroup]="SubjectFormGroup" method="post" (ngSubmit)="Onsubmit()" class="m-5">
+  <div class="mb-3">
+    <label for="subjectId" class="form-label">Subject:</label>
+    <input type="text" class="form-control" formControlName="Subject" id="subjectId" name="Subject" required
+      placeholder="Enter Your Subject">
+  </div>
+  <div class="mb-3">
+    <label for="bodyId" class="form-label">Message:</label>
+    <textarea class="form-control" formControlName="Body" id="bodyId" name="Body" rows="3"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Store</button>
+</form>
+
+
+
+<br>
+
+
+<div class="container mt-3">
+  <h2>Subject List view</h2>  <br>         
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Subject</th>
+        <th>Go To</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sub of subjects">
+        <td  class="p-5">{{sub.id}}</td>
+        <td class="p-5"> {{ sub.subject }}</td>
+        <td> <a [routerLink]="['/senderpage',sub.id]">
+          <button class="btn btn-primary btn-sm m-5">Sent it</button>
+        </a></td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>

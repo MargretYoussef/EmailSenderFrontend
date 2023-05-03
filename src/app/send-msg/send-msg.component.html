@@ -1,0 +1,20 @@
+<br><br>
+<h2 class="m-3">Send message to:</h2>
+
+ <br>
+
+  <form [formGroup]="EmailFormGroup" method="post" (ngSubmit)="Submit()" class="m-5">
+    <div class="mb-3">
+      <label for="mailToId" class="form-label">ToEmail:</label>
+      <input type="text" class="form-control" formControlName="ToEmail" id="mailToId" name="ToEmail" required
+        placeholder="you can send to email or multi email">
+    </div>
+    <div class="mb-3">
+      <label for="bodyId" class="form-label">Redirected Message:</label>
+    <!-- <p class="form-control" formControlName="Body" id="bodyId" name="Body">{{subject.body}}</p>  -->
+    <input class="form-control" type="text" formControlName="Body" id="bodyId" name="Body" value="{{subject.body}}"  readonly>
+    </div>
+
+  <button type="submit" class="btn btn-primary">Send</button>
+
+</form>
